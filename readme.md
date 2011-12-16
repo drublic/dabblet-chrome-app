@@ -7,4 +7,4 @@
 Is supposed to become a part of the Google Chrome App Store.
 
 ## License
-[Public Domain](http://creativecommons.org/publicdomain/zero/1.0/)
+For this app: [Public Domain](http://creativecommons.org/publicdomain/zero/1.0/)

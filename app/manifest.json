@@ -1,6 +1,6 @@
 {
   "name": "dabblet",
-  "description": "Online Editor for the Web (JavaScript, MooTools, jQuery, Prototype, YUI, Glow and Dojo, HTML, CSS)",
+  "description": "An interactive CSS playground with extensive GitHub gist-use.",
   "version": "0.1",
   "icons": {
     "16": "dabblet-16x16.png",
