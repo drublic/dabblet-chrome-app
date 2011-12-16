@@ -1,0 +1,18 @@
+{
+  "name": "dabblet",
+  "description": "Online Editor for the Web (JavaScript, MooTools, jQuery, Prototype, YUI, Glow and Dojo, HTML, CSS)",
+  "version": "0.1",
+  "icons": {
+    "16": "dabblet-16x16.png",
+    "48": "dabblet-48x48.png",
+    "128": "dabblet-128x128.png"
+  },
+  "app": {
+    "urls": [
+      "http://dabblet.com/"
+    ],
+    "launch": {
+      "web_url": "http://dabblet.com/"
+    }
+  }
+}
