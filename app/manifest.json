@@ -8,11 +8,8 @@
     "128": "dabblet-128x128.png"
   },
   "app": {
-    "urls": [
-      "http://dabblet.com/"
-    ],
     "launch": {
-      "web_url": "http://dabblet.com/"
+        "local_path" : "main.html"
     }
   }
 }
