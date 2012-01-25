@@ -1,0 +1,179 @@
+@import 'h5bp'
+
+body
+  font 16px/18px "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif
+  color $text
+
+
+// Links
+a
+  color #0069d6
+  
+  &:visited
+    color #0069d6
+
+  &:hover
+    color #0050a3
+    text-decoration none
+
+
+// Paragraphes
+p
+  margin-bottom 9px
+
+
+// Headlines
+h1,
+h2,
+h3,
+  color #404040
+  line-height 36px
+
+h1
+  margin-bottom 18px
+  font-size 2em
+
+h2
+  font-size 1.7em
+
+h3
+  font-size 1.3em
+
+// Horizontal Line
+hr
+  margin 0 0 19px
+  border-bottom 1px solid #ccc
+
+
+// Code
+code, pre
+  font-family Monaco, Andale Mono, Courier New, monospace
+
+code
+  background-color #fee9cc
+  color rgba(0, 0, 0, 0.75)
+  padding 1px 3px
+  font-size 12px
+  border-radius 3px
+
+pre
+  display block
+  padding 14px
+  margin 0 0 18px
+  line-height 16px
+  font-size .8em
+  border 1px solid #d9d9d9
+  white-space pre-wrap
+  word-wrap break-word
+  
+  code
+    background-color #fff
+    color #737373
+    padding 0
+
+
+
+// Tables
+table
+  width 100%
+  border-collapse collapse
+  margin-bottom 30px
+
+tbody tr:nth-child(even) td,
+tbody tr:nth-child(even) th
+  border 1px solid #ccc
+  border-left 0
+  border-right 0
+
+td:nth-child(even),
+th:nth-child(even)
+  background #e6e6e6
+
+th,
+td
+  padding 0 10px
+  
+tbody tr:hover td,
+tbody tr:hover th
+  background #e1e100 !important
+
+
+
+
+// Forms
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"]
+  background #f5f5f5
+  border 1px solid #aaa
+  border-radius 5px
+  padding 5px
+
+  &:focus
+    background #fff
+    box-shadow 0 0 5px rgba(0,0,0,.4)
+    outline 0
+
+
+
+
+// Header
+header
+  padding .4em .5em .2em
+  background url(http://dabblet.com/img/noise.png), -webkit-linear-gradient(#2E3538, rgba(46, 53, 56, .9))
+  border-bottom 10px solid #000
+  margin-bottom 2em
+  overflow hidden
+  
+  .user
+    float left
+    padding .45em .6em
+    margin-left 2em
+    border 1px solid rgba(0,0,0,.4)
+    border-radius .3em
+    white-space nowrap
+    text-decoration none
+    background-image url(http://dabblet.com/img/noise.png)
+    box-shadow rgba(255, 255, 255, .4) 0 1px 0 inset, rgba(255, 255, 255, .3) 0 25px 30px -12px inset, rgba(0, 0, 0, .6) 0 1px 2px
+    text-shadow 0 -1px 1px black, 0 -1px 2px black
+    cursor pointer
+    color #fff
+    font-weight bold
+    
+    &:visited
+      color #fff
+    
+    &:hover,
+    &:active
+      background-color black
+    
+    img
+      max-height 1.4em
+      width 1.4em
+      margin -.2em .3em -.2em -1.6em
+      vertical-align bottom
+      border-radius 1px
+      box-shadow 0 0 0 1px rgba(0,0,0,.2)
+      margin-left -.3em
+
+
+#logo
+  float left
+
+
+// Content
+#content
+  max-width 1200px
+  margin 0 auto
+  padding 1em
+
+
+
+
+
+
+
+
+
+
