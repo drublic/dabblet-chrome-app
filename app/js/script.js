@@ -22,6 +22,7 @@ window.log = function(){
 
 
 var tmpl = {}, // Holds templates
+    filetypes, // Types of files in gist
     line_data, // Translated data for template
     lines = '' // Holds all compiled lines
 ;
@@ -41,18 +42,31 @@ var tmpl = {}, // Holds templates
 + function() {
   $.get('https://api.github.com/users/drublic/gists', function(data) {
 
+    data = data.data;
+
     // Itterate through Gists
-    for (var i = 0; i < data.data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
+    
+      // Itterate through files to get the types
+      filetypes = [];
+      for (var file in data[i].files) {
+        filetypes.push(data[i].files[file].language);
+      }
+      
+      // If no CSS or HTML-file in Gist, do next step
+      if ($.inArray('CSS', filetypes) < 0 && $.inArray('HTML', filetypes) < 0) {
+        continue;
+      }
 
       // Add object with data for template
       line_data = {
-        description : data.data[i].description,
-        dabblet_url : 'http://dabblet.com/gist/' + data.data[i].id,
-        pull_url : data.data[i].git_pull_url,
+        description : data[i].description,
+        dabblet_url : 'http://dabblet.com/gist/' + data[i].id,
+        pull_url : data[i].git_pull_url,
         created_at : function() {
-          return moment(data.data[i].created_at).format('DD.MM.YYYY');
+          return moment(data[i].created_at).format('DD.MM.YYYY');
         },
-        comments : data.data[i].comments
+        comments : data[i].comments
       };
       
       // Render template
@@ -60,7 +74,7 @@ var tmpl = {}, // Holds templates
     }
     
     // Append all lines to table
-    $('tbody').append(lines);
+    $('#content').find('tbody').append(lines);
 
   }, 'jsonp');
 }();
