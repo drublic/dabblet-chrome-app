@@ -86,9 +86,18 @@ pre
 
 // Tables
 table
+  position relative
+  top 6em
+  opacity 0
   width 100%
+  margin 0 -1em
   border-collapse collapse
-  margin-bottom 30px
+  margin-bottom 2em
+  -webkit-transition all .5s
+  
+  &.fade
+    top 0
+    opacity 1
 
 th
   text-align left
@@ -242,7 +251,7 @@ header
   box-shadow inset 0 1px 0 #fff, 0 2px 30px rgba(0,0,0,.4)
   text-align center
   
-  -webkit-transition all 1s
+  -webkit-transition all .5s
   top -6em
   opacity 0
   
