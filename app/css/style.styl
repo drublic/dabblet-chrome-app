@@ -5,6 +5,9 @@ html
   min-height 100%
   background url(http://dabblet.com/img/noise.png), -webkit-linear-gradient(#2E3538, rgba(46, 53, 56, .9))
   
+  &.dabblet-app
+    background #f9f9f9 url(http://dabblet.com/img/noise.png)
+  
   
 body
   font 16px/18px "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif
@@ -149,10 +152,11 @@ header
   margin-bottom 2em
   overflow hidden
   
-  .user
+#nav
+  a
     float left
     padding .45em .6em
-    margin-left 2em
+    margin-left 1em
     border 1px solid rgba(0,0,0,.4)
     border-radius .3em
     white-space nowrap
@@ -183,6 +187,7 @@ header
 
 #logo
   float left
+  margin-right 2em
 
 
 // Content

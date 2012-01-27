@@ -231,6 +231,9 @@ html {
   min-height: 100%;
   background: url("http://dabblet.com/img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
 }
+html.dabblet-app {
+  background: #f9f9f9 url("http://dabblet.com/img/noise.png");
+}
 body {
   font: 16px/18px "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
   color: #222;
@@ -358,10 +361,10 @@ header {
   margin-bottom: 2em;
   overflow: hidden;
 }
-header .user {
+#nav a {
   float: left;
   padding: 0.45em 0.6em;
-  margin-left: 2em;
+  margin-left: 1em;
   border: 1px solid rgba(0,0,0,0.40);
   border-radius: 0.3em;
   white-space: nowrap;
@@ -373,14 +376,14 @@ header .user {
   color: #fff;
   font-weight: bold;
 }
-header .user:visited {
+#nav a:visited {
   color: #fff;
 }
-header .user:hover,
-header .user:active {
+#nav a:hover,
+#nav a:active {
   background-color: #000;
 }
-header .user img {
+#nav a img {
   max-height: 1.4em;
   width: 1.4em;
   margin: -0.2em 0.3em -0.2em -1.6em;
@@ -391,6 +394,7 @@ header .user img {
 }
 #logo {
   float: left;
+  margin-right: 2em;
 }
 #content {
   max-width: 1200px;
@@ -409,33 +413,79 @@ header .user img {
   -webkit-box-pack: center;
   background: -webkit-radial-gradient(rgba(0,0,0,0.00), rgba(0,0,0,0.00) 35%, rgba(0,0,0,0.30));
 }
-.dialog {
+@-webkit-keyframes shake {
+  0%, 30%, 60%, 90% {
+    margin-left: 20px;
+  }
+
+  15%, 45%, 75% {
+    margin-left: -20px;
+  }
+
+  100% {
+    margin-left: 0;
+  }
+}
+.outline {
   position: relative;
+}
+.outline.error {
+  -webkit-animation: shake 0.5s 1;
+}
+#dialog {
+  position: relative;
+  z-index: 1;
   width: 15em;
   padding: 0 2em 0.7em 148px;
   border: 1px solid #aaa;
-  border-bottom-color: #555;
-  margin: -4em -13.3em;
+  border-bottom-color: #999;
   border-radius: 10px;
   background: -webkit-linear-gradient(#eee, rgba(230,230,230,0.90));
   box-shadow: inset 0 1px 0 #fff, 0 2px 30px rgba(0,0,0,0.40);
   text-align: center;
+  -webkit-transition: all 1s;
+  top: -6em;
+  opacity: 0;
 }
-.dialog label {
+#dialog.fade {
+  top: 0;
+  opacity: 1;
+}
+#dialog label {
   font-size: 0.9em;
 }
-.dialog input {
+#dialog input {
   font-size: 1.2em;
   padding: 0.4em 0;
   text-align: center;
 }
-.dialog h3 {
+#dialog h3 {
   position: relative;
   text-shadow: 0 -1px 0 rgba(255,255,255,0.50);
   font-weight: normal;
   margin: 0.7em 0.5em;
   border-bottom: 1px solid #aaa;
   padding-bottom: 0.4em;
+}
+.messages {
+  position: absolute;
+  bottom: 0;
+  left: 1.5em;
+  right: 1.5em;
+  background: rgba(230,230,230,0.90);
+  font-size: 0.9em;
+  border-radius: 0 0 0.4em 0.4em;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  opacity: 0;
+}
+.messages.fade {
+  opacity: 1;
+  bottom: -2.25em;
+}
+.messages p {
+  padding: 0.5em;
+  margin: 0;
 }
 .logo-big {
   position: absolute;

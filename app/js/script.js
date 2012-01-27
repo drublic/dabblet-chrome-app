@@ -119,6 +119,23 @@ var tmpl = {
 
 }();
 
+
+
+
+// Hash-Listener
++ function() {
+  location.hash = '';
+
+  $(win).bind('hashchange', function() {
+    var status = location.hash.replace(/#\//, '');
+      log(status);
+    
+    if (status == "change-user") {
+      localStorage.removeItem('github-user-data');
+      location.reload();
+    }
+  
+  });
 }();
 
 
