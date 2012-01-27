@@ -21,26 +21,60 @@ window.log = function(){
 + function(win, doc, $, undefined) {
 
 
-var tmpl = {}, // Holds templates
+var user = undefined, // GitHub Username
     filetypes, // Types of files in gist
     line_data, // Translated data for template
     lines = '' // Holds all compiled lines
 ;
 
 
-// Get Template for Dabblets
+// Get Templates
+var tmpl = {
+  done : undefined,
+  get : function(which, json, callback) {
+    var template;
+
+    $.get('tmpl/' + which + '.html', function(data) {
+      template = Hogan.compile(data).render(json);
+      
+      if (callback !== undefined) {
+        callback(template);
+      }
+    }, 'text');
+  }
+
+};
+
+
+
+
+
+
+// Check for User
 + function() {
   
-  $.get('tmpl/line.html', function(data) {
-    tmpl.line = Hogan.compile(data);
-  }, 'text');
+  if (localStorage.getItem('github-user') !== null) {
+    user = localStorage.getItem('github-user');
+    
+    tmpl.get('dabblets', undefined, function(data) {
+      $('#container').html(data);
+    });
+
+  } else {
+    log('No user exists');
+
+    // Propagate Dialog
+    tmpl.get('user-dialog', undefined, function(data) {
+      $('#container').html(data);
+    });
+  }
 
 }();
 
 
 // Request latest Gists
 + function() {
-  $.get('https://api.github.com/users/drublic/gists', function(data) {
+  $.get('https://api.github.com/users/' + user + '/gists', function(data) {
 
     data = data.data;
 
@@ -70,7 +104,9 @@ var tmpl = {}, // Holds templates
       };
       
       // Render template
-      lines += tmpl.line.render(line_data);
+      tmpl.get('user-dialog', line_data, function(data) {
+        lines += data;
+      });
     }
     
     // Append all lines to table
