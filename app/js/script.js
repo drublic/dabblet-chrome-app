@@ -50,28 +50,6 @@ var tmpl = {
 
 
 
-// Check for User
-+ function() {
-  
-  if (localStorage.getItem('github-user') !== null) {
-    user = localStorage.getItem('github-user');
-    
-    tmpl.get('dabblets', undefined, function(data) {
-      $('#container').html(data);
-    });
-
-  } else {
-    log('No user exists');
-
-    // Propagate Dialog
-    tmpl.get('user-dialog', undefined, function(data) {
-      $('#container').html(data);
-    });
-  }
-
-}();
-
-
 // Request latest Gists
 + function() {
   $.get('https://api.github.com/users/' + user + '/gists', function(data) {
@@ -113,6 +91,34 @@ var tmpl = {
     $('#content').find('tbody').append(lines);
 
   }, 'jsonp');
+// Check for User
++ function() {
+  
+  // If user is already registered
+  if (localStorage.getItem('github-user-data') !== null) {
+    load_app();
+
+  // If user is not registered
+  } else {
+    // Propagate Dialog
+    tmpl.get('user-dialog', undefined, function(data) {
+      $('#container').html(data);
+      $('#dialog').addClass('fade');
+
+      $('#username').focus()
+        .focusout(function() {
+          register_user($(this).val());
+        })
+        .keypress(function(e) {
+          if (e.which == 13) {
+            $(this).trigger('focusout');
+          }
+        });
+    });
+  }
+
+}();
+
 }();
 
 
