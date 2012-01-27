@@ -21,8 +21,7 @@ window.log = function(){
 + function(win, doc, $, undefined) {
 
 
-var user = undefined, // GitHub Username
-    filetypes, // Types of files in gist
+var filetypes, // Types of files in gist
     line_data, // Translated data for template
     lines = '' // Holds all compiled lines
 ;
@@ -31,11 +30,14 @@ var user = undefined, // GitHub Username
 // Get Templates
 var tmpl = {
   done : undefined,
-  get : function(which, json, callback) {
+  get : function(which, json, callback, render) {
     var template;
 
     $.get('tmpl/' + which + '.html', function(data) {
-      template = Hogan.compile(data).render(json);
+      template = Hogan.compile(data);
+      if (render === undefined) {
+        template = template.render(json);
+      }
       
       if (callback !== undefined) {
         callback(template);
@@ -49,10 +51,11 @@ var tmpl = {
 
 
 
-
 // Request latest Gists
-+ function() {
-  $.get('https://api.github.com/users/' + user + '/gists', function(data) {
+var get_dabblets = function() {
+  var user = $.parseJSON( localStorage.getItem('github-user-data') );
+
+  $.get('https://api.github.com/users/' + user.username + '/gists', function(data) {
 
     data = data.data;
 
@@ -75,22 +78,71 @@ var tmpl = {
         description : data[i].description,
         dabblet_url : 'http://dabblet.com/gist/' + data[i].id,
         pull_url : data[i].git_pull_url,
-        created_at : function() {
-          return moment(data[i].created_at).format('DD.MM.YYYY');
-        },
+        created_at : moment(data[i].created_at).format('DD.MM.YYYY'),
         comments : data[i].comments
       };
       
       // Render template
-      tmpl.get('user-dialog', line_data, function(data) {
-        lines += data;
+      tmpl.get('line', line_data, function(data) {
+
+        // Append all lines to table
+        $('#content').find('tbody').append(data);
       });
     }
-    
-    // Append all lines to table
-    $('#content').find('tbody').append(lines);
 
   }, 'jsonp');
+};
+
+
+
+
+
+var load_app = function() {
+  $('html').addClass('dabblet-app');
+
+  tmpl.get('dabblets', $.parseJSON( localStorage.getItem('github-user-data') ), function(data) {
+    $('#container').html(data);
+    
+    get_dabblets();
+  });
+};
+
+
+
+var register_user = function(user) {
+
+  $('.outline').removeClass('error');
+  $('.messages').removeClass('fade');
+
+  // Set Username in local-storage
+  if (user !== '') {
+    $.get('https://api.github.com/users/' + user, function(data) {
+      if (data.data.message !== undefined && data.data.message === "Not Found") {
+
+        // If user does not exist
+        $('.outline').addClass('error');
+        $('.messages').html('<p>Sorry, this username does not exist.</p>');
+        setTimeout(function() {
+          $('.messages').addClass('fade');
+        }, 500);
+        
+      } else if (data.data.id !== undefined) {
+        
+        var userdata = {
+          username : data.data.login,
+          name : data.data.name,
+          avatar : data.data.avatar_url
+        };
+
+        localStorage.setItem('github-user-data', JSON.stringify(userdata));
+        load_app();
+      }
+    }, 'jsonp');
+  }
+
+};
+
+
 // Check for User
 + function() {
   
