@@ -235,7 +235,7 @@ html.dabblet-app {
   background: #f9f9f9 url("http://dabblet.com/img/noise.png");
 }
 body {
-  font: 16px/18px "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+  font: 1em/1.1em "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
   color: #222;
 }
 a {
@@ -299,9 +299,18 @@ pre code {
   padding: 0;
 }
 table {
+  position: relative;
+  top: 6em;
+  opacity: 0;
   width: 100%;
+  margin: 0 -1em;
   border-collapse: collapse;
-  margin-bottom: 30px;
+  margin-bottom: 2em;
+  -webkit-transition: all 0.5s;
+}
+table.fade {
+  top: 0;
+  opacity: 1;
 }
 th {
   text-align: left;
@@ -318,7 +327,7 @@ th:nth-child(even) {
 }
 th,
 td {
-  padding: 5px 10px;
+  padding: 0.5em 1em;
 }
 th a,
 td a {
@@ -443,7 +452,7 @@ header {
   background: -webkit-linear-gradient(#eee, rgba(230,230,230,0.90));
   box-shadow: inset 0 1px 0 #fff, 0 2px 30px rgba(0,0,0,0.40);
   text-align: center;
-  -webkit-transition: all 1s;
+  -webkit-transition: all 0.5s;
   top: -6em;
   opacity: 0;
 }
