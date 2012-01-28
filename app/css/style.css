@@ -268,6 +268,9 @@ h2 {
 h3 {
   font-size: 1.3em;
 }
+p {
+  margin: 0.3em 0;
+}
 hr {
   margin: 0 0 19px;
   border-bottom: 1px solid #ccc;
@@ -410,6 +413,9 @@ header.fade {
   box-shadow: 0 0 0 1px rgba(0,0,0,0.20);
   margin-left: -0.3em;
 }
+#nav .right {
+  float: right;
+}
 #logo {
   float: left;
   margin-right: 2em;
@@ -467,13 +473,14 @@ header.fade {
 }
 .outline {
   position: relative;
+  -webkit-transition: all 0.5s;
 }
 .outline.error {
   -webkit-animation: shake 0.5s 1;
 }
 #dialog {
   position: relative;
-  z-index: 1;
+  z-index: 18;
   width: 15em;
   padding: 0 2em 0.7em 148px;
   border: 1px solid #aaa;
@@ -505,6 +512,31 @@ header.fade {
   margin: 0.7em 0.5em;
   border-bottom: 1px solid #aaa;
   padding-bottom: 0.4em;
+}
+#dialog h4 {
+  margin-bottom: 0;
+}
+#dialog p {
+  font-size: 0.9em;
+}
+#dialog.about {
+  padding-left: 2em;
+  width: 20em;
+}
+#dialog.about .close {
+  float: right;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.25;
+  font-size: 1.3em;
+  margin: 0.5em -1em;
+}
+#dialog.about .close:visited {
+  color: #000;
+}
+#dialog.about .close:hover {
+  opacity: 1;
 }
 .messages {
   position: absolute;

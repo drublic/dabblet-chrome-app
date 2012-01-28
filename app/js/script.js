@@ -185,11 +185,31 @@ var register_user = function(user) {
 
   $(win).bind('hashchange', function() {
     var status = location.hash.replace(/#\//, '');
-      log(status);
     
     if (status == "change-user") {
       localStorage.removeItem('github-user-data');
       location.reload();
+    } else if (status == "about") {
+      tmpl.get('about', undefined, function(data) {
+        $('#container').append(data);
+        
+        setTimeout(function() {
+          $('#dialog').addClass('fade')
+            .find('.close').click(function() {
+              $('#dialog').removeClass('fade');
+              setTimeout(function() {
+                $('#overlay').remove()
+              }, 500);
+            });
+        }, 0);
+        
+        $(win).keyup(function(e) {
+          if (e.which == 27) {
+            $('#dialog').find('.close').trigger('click');
+            location.hash = '';
+          }
+        });
+      });
     }
   
   });

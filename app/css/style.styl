@@ -49,6 +49,10 @@ h3
   font-size 1.3em
 
 
+p
+  margin .3em 0
+
+
 
 // Horizontal Line
 hr
@@ -201,6 +205,9 @@ header
       border-radius 1px
       box-shadow 0 0 0 1px rgba(0,0,0,.2)
       margin-left -.3em
+  
+  .right
+    float right
 
 
 #logo
@@ -262,6 +269,7 @@ header
 
 .outline
   position relative
+  -webkit-transition all .5s
   
   &.error
     -webkit-animation shake .5s 1
@@ -269,7 +277,7 @@ header
 
 #dialog
   position relative
-  z-index 1
+  z-index 18
   width 15em
   padding 0 2em .7em 148px
   border 1px solid #aaa;
@@ -303,6 +311,32 @@ header
     margin .7em .5em
     border-bottom 1px solid #aaa;
     padding-bottom .4em
+  
+  h4
+    margin-bottom 0
+  
+  p
+    font-size .9em
+  
+  
+  &.about
+    padding-left 2em
+    width 20em
+    
+    .close
+      float right
+      font-weight bold
+      text-decoration none
+      color #000
+      opacity .25
+      font-size 1.3em
+      margin .5em -1em
+      
+      &:visited
+        color #000
+      
+      &:hover
+        opacity 1
   
   
 .messages
