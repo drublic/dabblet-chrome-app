@@ -405,10 +405,31 @@ header {
   float: left;
   margin-right: 2em;
 }
+@-webkit-keyframes loader {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -700px 0;
+  }
+}
 #content {
+  position: relative;
   max-width: 1200px;
+  min-height: 500px;
   margin: 0 auto;
   padding: 1em;
+}
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px;
+  background: url("../img/loader.png");
+  -webkit-animation: loader 1s infinite steps(7);
 }
 #overlay {
   display: -webkit-box;

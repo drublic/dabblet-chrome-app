@@ -88,6 +88,9 @@ var get_dabblets = function() {
         // Append all lines to table
         $('#content').find('tbody').append(data);
         $('#content').find('table').addClass('fade');
+        $('#loading').fadeOut(function() {
+          // $(this).remove();
+        });
       });
     }
 
