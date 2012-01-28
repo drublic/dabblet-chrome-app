@@ -364,8 +364,11 @@ input[type="url"]:focus {
   border-color: #888;
 }
 header {
-  position: relative;
+  position: fixed;
   top: -3em;
+  left: 0;
+  right: 0;
+  z-index: 9;
   padding: 0.4em 2em 0.2em;
   background: url("http://dabblet.com/img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
   border-bottom: 10px solid #000;
@@ -425,11 +428,11 @@ header.fade {
   max-width: 1200px;
   min-height: 500px;
   margin: 0 auto;
-  padding: 1em;
+  padding: 5em 1em 1em;
 }
 #loading {
   position: absolute;
-  top: 200px;
+  top: 20em;
   left: 50%;
   width: 100px;
   height: 100px;

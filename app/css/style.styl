@@ -155,8 +155,11 @@ input[type="url"]
 
 // Header
 header
-  position relative
+  position fixed
   top -3em
+  left 0
+  right 0
+  z-index 9
   padding .4em 2em .2em
   background url(http://dabblet.com/img/noise.png), -webkit-linear-gradient(#2E3538, rgba(46, 53, 56, .9))
   border-bottom 10px solid #000
@@ -219,11 +222,11 @@ header
   max-width 1200px
   min-height 500px
   margin 0 auto
-  padding 1em
+  padding 5em 1em 1em
     
 #loading
   position absolute
-  top 200px
+  top 20em
   left 50%
   width 100px
   height 100px
