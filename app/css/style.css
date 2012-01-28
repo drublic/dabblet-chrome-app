@@ -364,11 +364,17 @@ input[type="url"]:focus {
   border-color: #888;
 }
 header {
+  position: relative;
+  top: -3em;
   padding: 0.4em 2em 0.2em;
   background: url("http://dabblet.com/img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
   border-bottom: 10px solid #000;
   margin-bottom: 2em;
   overflow: hidden;
+  -webkit-transition: top 0.5s;
+}
+header.fade {
+  top: 0;
 }
 #nav a {
   float: left;

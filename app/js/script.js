@@ -89,7 +89,7 @@ var get_dabblets = function() {
         $('#content').find('tbody').append(data);
         $('#content').find('table').addClass('fade');
         $('#loading').fadeOut(function() {
-          // $(this).remove();
+          $(this).remove();
         });
       });
     }
@@ -106,7 +106,8 @@ var load_app = function() {
 
   tmpl.get('dabblets', $.parseJSON( localStorage.getItem('github-user-data') ), function(data) {
     $('#container').html(data);
-    
+    $('header').addClass('fade');
+
     get_dabblets();
   });
 };
