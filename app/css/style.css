@@ -235,7 +235,7 @@ html.dabblet-app {
   background: #f9f9f9 url("http://dabblet.com/img/noise.png");
 }
 body {
-  font: 1em/1.1em "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+  font: 1em/1.1 "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
   color: #222;
 }
 a {
@@ -256,7 +256,7 @@ h2,
 h3,
  {
   color: #404040;
-  line-height: 36px;
+  line-height: 2;
 }
 h1 {
   margin-bottom: 18px;
@@ -375,7 +375,6 @@ header {
   padding: 0.4em 2em 0.2em;
   background: url("http://dabblet.com/img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
   border-bottom: 10px solid #000;
-  margin-bottom: 2em;
   overflow: hidden;
   -webkit-transition: top 0.5s;
 }
@@ -514,13 +513,16 @@ header.fade {
   padding-bottom: 0.4em;
 }
 #dialog h4 {
-  margin-bottom: 0;
+  margin: 1.5em 2em 0.4em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.4em;
+  font-weight: normal;
 }
 #dialog p {
   font-size: 0.9em;
 }
 #dialog.about {
-  padding-left: 2em;
+  padding: 1em 1.5em;
   width: 20em;
 }
 #dialog.about .close {
@@ -530,7 +532,6 @@ header.fade {
   color: #000;
   opacity: 0.25;
   font-size: 1.3em;
-  margin: 0.5em -1em;
 }
 #dialog.about .close:visited {
   color: #000;

@@ -186,9 +186,18 @@ var register_user = function(user) {
   $(win).bind('hashchange', function() {
     var status = location.hash.replace(/#\//, '');
     
+    // Change user
     if (status == "change-user") {
       localStorage.removeItem('github-user-data');
-      location.reload();
+      $('header').removeClass('fade');
+      $('#content').find('table').removeClass('fade');
+      
+      setTimeout(function() {
+        location.reload();
+      }, 500)
+    
+    
+    // About page
     } else if (status == "about") {
       tmpl.get('about', undefined, function(data) {
         $('#container').append(data);
