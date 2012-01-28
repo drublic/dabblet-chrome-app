@@ -423,7 +423,7 @@ header {
 }
 #loading {
   position: absolute;
-  top: 50%;
+  top: 200px;
   left: 50%;
   width: 100px;
   height: 100px;
