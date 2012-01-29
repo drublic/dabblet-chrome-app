@@ -1,7 +1,7 @@
 {
   "name": "dabblet",
   "description": "An interactive CSS playground with extensive GitHub gist-use.",
-  "version": "r32",
+  "version": "0.36",
   "icons": {
     "16": "dabblet-16x16.png",
     "48": "dabblet-48x48.png",
