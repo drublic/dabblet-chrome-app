@@ -105,12 +105,9 @@ table
 
 th
   text-align left
-  border-bottom 1px solid #ccc
 
-tbody tr:nth-child(even) td,
-tbody tr:nth-child(even) th
-  border 1px solid #ccc
-  border-width 1px 0
+tr
+  border-bottom 1px solid #ccc
 
 td:nth-child(even),
 th:nth-child(even)
@@ -127,6 +124,12 @@ td
 tbody tr:hover td,
 tbody tr:hover th
   background #eee !important
+
+
+
+// Helper
+.hidden
+  display none
 
 
 
@@ -154,7 +157,6 @@ input[type="search"]
     background #fff
     outline 0
     border-color #888
-
 
 
 
