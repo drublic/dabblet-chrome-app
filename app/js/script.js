@@ -51,6 +51,33 @@ var tmpl = {
 
 
 
+
+
+// Search
+var init_search = function() {
+  $('#search').quicksearch('table tbody tr', {
+
+    // Bind events
+    'bind' : 'keydown keyup click',
+
+    // Show files
+    'show': function() {
+      $(this).removeClass('hidden');
+    },
+    
+    // Hide files
+    'hide': function() {
+      $(this).addClass('hidden');
+    },
+    
+    'noResults' : 'tfoot'
+  });
+};
+
+
+
+
+
 // Request latest Gists
 var get_dabblets = function() {
   var user = $.parseJSON( localStorage.getItem('github-user-data') );
@@ -90,13 +117,13 @@ var get_dabblets = function() {
         $('#content').find('table').addClass('fade');
         $('#loading').fadeOut(function() {
           $(this).remove();
+          init_search();
         });
       });
     }
 
   }, 'jsonp');
 };
-
 
 
 
