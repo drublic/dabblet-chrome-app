@@ -140,7 +140,8 @@ label
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="url"]
+input[type="url"],
+input[type="search"]
   background #f1f1f1
   border 1px solid #aaa
   border-radius 5px
@@ -239,6 +240,22 @@ header
   margin -50px
   background url(../img/loader.png)
   -webkit-animation loader 1s infinite steps(7)
+
+
+.search
+  position relative
+
+.search label
+  display none
+
+input[type="search"]
+  position absolute
+  top -3.5em
+  right 1em
+  width 13em
+  padding 5px 0
+  border-radius 1em
+
 
 
 
@@ -369,6 +386,8 @@ header
   height 128px
   text-indent -999em
   background url(../img/logo-big.png)
+
+
 
 
 
