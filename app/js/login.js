@@ -27,7 +27,7 @@ define(['jquery', 'plugins/text!tmpl/login.html'], function($, tmpl) {
           };
   
           localStorage.setItem('github-user-data', JSON.stringify(userdata));
-          require('load-app');
+          require(['load-app']);
         }
       });
     }
