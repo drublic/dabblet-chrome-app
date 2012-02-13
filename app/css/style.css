@@ -566,7 +566,7 @@ input[type="search"] {
 }
 .messages.fade {
   opacity: 1;
-  bottom: -2.25em;
+  bottom: -2em;
 }
 .messages p {
   padding: 0.5em;
