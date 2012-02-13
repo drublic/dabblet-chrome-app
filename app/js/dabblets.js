@@ -1,6 +1,7 @@
 define(['jquery', 'plugins/text!tmpl/dabblets.html', 'helpers/hogan', 'helpers/moment'], function($, tmpl, Hogan, moment) {
   // Request latest Gists
   var user = $.parseJSON( localStorage.getItem('github-user-data') ),
+      output = "",
       template, filetypes;
 
   require(['https://api.github.com/users/' + user.username + '/gists?callback=define'], function(data) {
@@ -9,6 +10,9 @@ define(['jquery', 'plugins/text!tmpl/dabblets.html', 'helpers/hogan', 'helpers/m
     
     // If there's stuff to display
     if (data.length > 0) {
+      
+      // Compile the template once
+      this.template = Hogan.compile(tmpl);
 
       // Itterate through Gists
       for (var i = 0; i < data.length; i++) {
@@ -34,16 +38,16 @@ define(['jquery', 'plugins/text!tmpl/dabblets.html', 'helpers/hogan', 'helpers/m
         };
         
         // Render template
-        this.template = Hogan.compile(tmpl).render(line_data);
-  
-        // Append all lines to table
-        $('#content').find('tbody').append(this.template);
-        $('#content').find('table').addClass('fade');
-        $('#loading').fadeOut(function() {
-          $(this).remove();
-          require(['search']);
-        });
+        this.output += this.template.render(line_data);
       }
+
+      // Append all lines to table
+      $('#content').find('tbody').append(this.output);
+      $('#content').find('table').addClass('fade');
+      $('#loading').fadeOut(function() {
+        $(this).remove();
+        require(['search']);
+      });
     
     // If there's nothing to display
     } else {
