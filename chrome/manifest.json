@@ -3,17 +3,17 @@
   "description": "An interactive CSS playground with extensive GitHub gist-use.",
   "version": "0.70",
   "icons": {
-    "16": "dabblet-16x16.png",
-    "48": "dabblet-48x48.png",
-    "128": "dabblet-128x128.png"
+    "16": "app/icons/dabblet-16x16.png",
+    "48": "app/icons/dabblet-48x48.png",
+    "128": "app/icons/dabblet-128x128.png"
   },
   "content_scripts": [{
     "matches": ["https://gist.github.com/*"],
-    "js": ["js/github/manipulation.js"]
+    "js": ["app/js/github/manipulation.js"]
   }],
   "app": {
     "launch": {
-       "local_path" : "main.html"
+       "local_path" : "app/main.html"
     }
   }
 }
