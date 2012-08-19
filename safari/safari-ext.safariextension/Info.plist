@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Hans Christian Reinl</string>
+	<key>Builder Version</key>
+	<string>7534.53.10</string>
+	<key>CFBundleDisplayName</key>
+	<string>Dabblet</string>
+	<key>CFBundleIdentifier</key>
+	<string>de.drublic.dabblet</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.7</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Context Menu Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>dabblet</string>
+				<key>Title</key>
+				<string>Dabblet</string>
+			</dict>
+		</array>
+		<key>Global Page</key>
+		<string>main.html</string>
+		<key>Popovers</key>
+		<array>
+			<dict>
+				<key>Filename</key>
+				<string>main.html</string>
+				<key>Height</key>
+				<real>600</real>
+				<key>Identifier</key>
+				<string>dabblet</string>
+				<key>Width</key>
+				<real>800</real>
+			</dict>
+		</array>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>dabblet</string>
+				<key>Image</key>
+				<string>dabblet-16x16.png</string>
+				<key>Label</key>
+				<string>Dabblet</string>
+				<key>Palette Label</key>
+				<string>Dabblet</string>
+				<key>Popover</key>
+				<string>dabblet</string>
+				<key>Tool Tip</key>
+				<string>Open a list of your dabblets</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict/>
+	</dict>
+	<key>Description</key>
+	<string>This extension lists all your dabblets</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict/>
+	</dict>
+	<key>Website</key>
+	<string>http://drublic.de/blog/dabblet-chrome-app/</string>
+</dict>
+</plist>
