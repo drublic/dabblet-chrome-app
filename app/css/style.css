@@ -226,10 +226,10 @@ td {
 }
 html {
 	min-height: 100%;
-	background: url("http://dabblet.com/img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
+	background: url("../img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
 }
 html.dabblet-app {
-	background: #f9f9f9 url("http://dabblet.com/img/noise.png");
+	background: #f9f9f9 url("../img/noise.png");
 }
 body {
 	font: 1em/1.1 "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
@@ -372,7 +372,7 @@ header {
 	right: 0;
 	z-index: 9;
 	padding: 0.4em 2em 0.2em;
-	background: url("http://dabblet.com/img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
+	background: url("../img/noise.png"), -webkit-linear-gradient(#2e3538, rgba(46,53,56,0.90));
 	border-bottom: 10px solid #000;
 	overflow: hidden;
 	-webkit-transition: top 0.5s;
@@ -388,7 +388,7 @@ header.fade {
 	border-radius: 0.3em;
 	white-space: nowrap;
 	text-decoration: none;
-	background-image: url("http://dabblet.com/img/noise.png");
+	background-image: url("../img/noise.png");
 	box-shadow: rgba(255,255,255,0.40) 0 1px 0 inset, rgba(255,255,255,0.30) 0 25px 30px -12px inset, rgba(0,0,0,0.60) 0 1px 2px;
 	text-shadow: 0 -1px 1px #000, 0 -1px 2px #000;
 	cursor: pointer;
