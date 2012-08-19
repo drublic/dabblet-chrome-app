@@ -1,4 +1,4 @@
-+ function(window, document, undefined) {
+(function() {
 
 	// Create element with some content
 	var $dabbletLink = document.createElement('div');
@@ -12,8 +12,7 @@
 	var $owner = document.getElementById('owner');
 			$owner.style.marginBottom = '10px';
 
-
 	// Append the created element
 	$owner.parentNode.insertBefore($dabbletLink, document.getElementById('parent'));
 
-}(this, document);
+}());

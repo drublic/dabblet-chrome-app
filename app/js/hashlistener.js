@@ -12,7 +12,7 @@ define(['jquery'], function($) {
 
 			setTimeout(function() {
 				location.reload();
-			}, 500)
+			}, 500);
 
 
 		// About page
@@ -27,7 +27,7 @@ define(['jquery'], function($) {
 						.find('.close').click(function() {
 							$('#dialog').removeClass('fade');
 							setTimeout(function() {
-								$('#overlay').remove()
+								$('#overlay').remove();
 							}, 500);
 						});
 				}, 0);
