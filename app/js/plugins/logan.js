@@ -1,21 +1,37 @@
 
-var __ = {};
+var __ = {
 
-__.render = function (template, data) {
-	var field;
+	each: function (input, callback) {
 
-	if (!template) {
-		return;
-	}
-
-	for (field in data) {
-		if (data.hasOwnProperty(field)) {
-			template = template.replace('{{' + field + '}}', data[field]);
+		if (Object.prototype.toString.call(input) === '[object Array]') {
+			input.forEach(callback);
+		} else if (Object.prototype.toString.call(input) === '[object Object]') {
+			var single;
+			for (single in input) {
+				if (input.hasOwnProperty(single)) {
+					callback(single);
+				}
+			}
 		}
+	},
+
+	render: function (template, data) {
+		var field;
+
+		if (!template) {
+			return;
+		}
+
+		__.each(data, function (field) {
+			template = template.replace('{{' + field + '}}', data[field]);
+		});
+
+		return template;
 	}
 
-	return template;
 };
+
+
 
 if (typeof module !== "undefined") {
 	module.exports = __; // CommonJS
