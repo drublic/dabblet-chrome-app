@@ -32,6 +32,7 @@ define(['jquery', 'plugins/text!tmpl/dabblets.html', 'helpers/hogan', 'helpers/m
 				line_data = {
 					description : data[i].description,
 					dabblet_url : 'http://dabblet.com/gist/' + data[i].id,
+					html_url : data[i].html_url,
 					pull_url : data[i].git_pull_url,
 					created_at : this.moment(data[i].created_at).format('DD.MM.YYYY'),
 					comments : data[i].comments
