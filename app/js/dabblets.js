@@ -1,46 +1,46 @@
-define(['jquery', 'plugins/text!tmpl/dabblets.html', 'plugins/logan', 'helpers/moment'], function($, tmpl, __, moment) {
+define(['jquery', 'plugins/text!tmpl/dabblets.html', 'plugins/logan', 'helpers/moment'], function($, template, __, moment) {
 	// Request latest Gists
-	var user = $.parseJSON( localStorage.getItem('github-user-data') ),
-			output = "",
-			template, filetypes;
+	var user = $.parseJSON( localStorage.getItem('github-user-data') );
 
-	require(['https://api.github.com/users/' + user.username + '/gists?callback=define'], function(data) {
+	require(['https://api.github.com/users/' + user.username + '/gists?callback=define'], function (data) {
+		var filetypes, line_data,
+			output = "";
 
-		data = data.data;
+		gists = data.data;
 
 		// If there's stuff to display
-		if (data.length > 0) {
+		if (gists.length > 0) {
 
 			// Itterate through Gists
-			for (var i = 0; i < data.length; i++) {
+			__.each(gists, function (gist) {
 
 				// Itterate through files to get the types
 				filetypes = [];
-				for (var file in data[i].files) {
-					filetypes.push(data[i].files[file].language);
-				}
+				__.each(gist.files, function (file) {
+					filetypes.push(gist.files[file].language.toLowerCase());
+				});
 
 				// If no CSS or HTML-file in Gist, do next step
-				if ($.inArray('CSS', filetypes) < 0 && $.inArray('HTML', filetypes) < 0) {
-					continue;
+				if ($.inArray('css', filetypes) < 0 && $.inArray('html', filetypes) < 0) {
+					return false;
 				}
 
 				// Add object with data for template
 				line_data = {
-					description : data[i].description,
-					dabblet_url : 'http://dabblet.com/gist/' + data[i].id,
-					html_url : data[i].html_url,
-					pull_url : data[i].git_pull_url,
-					created_at : this.moment(data[i].created_at).format('DD.MM.YYYY'),
-					comments : data[i].comments
+					description:   gist.description,
+					dabblet_url:   'http://dabblet.com/gist/' + gist.id,
+					html_url:      gist.html_url,
+					pull_url:      gist.git_pull_url,
+					created_at:    this.moment(gist.created_at).format('DD.MM.YYYY'),
+					comments:      gist.comments
 				};
 
 				// Render template
-				this.output += __.render(this.template, line_data);
-			}
+				output += __.render(template, line_data);
+			});
 
 			// Append all lines to table
-			$('#content').find('tbody').append(this.output);
+			$('#content').find('tbody').append(output);
 			$('#content').find('table').addClass('fade');
 			$('#loading').fadeOut(function() {
 				$(this).remove();
