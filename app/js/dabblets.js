@@ -1,4 +1,4 @@
-define(['jquery', 'plugins/text!tmpl/dabblets.html', 'helpers/hogan', 'helpers/moment'], function($, tmpl, Hogan, moment) {
+define(['jquery', 'plugins/text!tmpl/dabblets.html', 'plugins/logan', 'helpers/moment'], function($, tmpl, __, moment) {
 	// Request latest Gists
 	var user = $.parseJSON( localStorage.getItem('github-user-data') ),
 			output = "",
@@ -10,9 +10,6 @@ define(['jquery', 'plugins/text!tmpl/dabblets.html', 'helpers/hogan', 'helpers/m
 
 		// If there's stuff to display
 		if (data.length > 0) {
-
-			// Compile the template once
-			this.template = Hogan.compile(tmpl);
 
 			// Itterate through Gists
 			for (var i = 0; i < data.length; i++) {
@@ -39,7 +36,7 @@ define(['jquery', 'plugins/text!tmpl/dabblets.html', 'helpers/hogan', 'helpers/m
 				};
 
 				// Render template
-				this.output += this.template.render(line_data);
+				this.output += __.render(this.template, line_data);
 			}
 
 			// Append all lines to table
