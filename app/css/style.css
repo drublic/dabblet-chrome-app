@@ -320,11 +320,16 @@ tr {
 th,
 td {
   padding: 0.5em 1em;
+  vertical-align: middle;
 }
 th a,
 td a {
   display: block;
   text-decoration: none;
+}
+th.small,
+td.small {
+  width: 32px;
 }
 tbody tr:hover td,
 tbody tr:hover th {
@@ -340,6 +345,21 @@ tbody tr:hover th {
 }
 .gist-icon-pull {
   background-image: url("../img/pull.png");
+}
+.gist-icon-comments {
+  background-image: url("../img/comments.png");
+}
+.comment-cont {
+  position: absolute;
+  margin: -3px 0 0 20px;
+  padding: 2px 5px 1px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(top, #c00, #900);
+  background: linear-gradient(to bottom, #c00, #900);
+  font-size: 0.8em;
+  color: #fff;
+  text-align: center;
 }
 .hidden {
   display: none;

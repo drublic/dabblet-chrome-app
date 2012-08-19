@@ -112,14 +112,19 @@ tr
 th,
 td
 	padding .5em 1em
+	vertical-align middle
 
 	a
 		display block
 		text-decoration none
 
-tbody tr:hover td,
-tbody tr:hover th
-	background #eee !important
+	&.small
+		width 32px
+
+tbody tr:hover
+	td,
+	th
+		background #eee !important
 
 .gist-icon
 	display block
@@ -131,6 +136,25 @@ tbody tr:hover th
 
 .gist-icon-pull
 	background-image url(../img/pull.png)
+
+.gist-icon-comments
+	background-image url(../img/comments.png)
+
+.comment-cont
+	position absolute
+
+	margin -3px 0 0 20px
+	padding 2px 5px 1px
+	border 2px solid #fff
+	border-radius 10px
+
+	background -webkit-linear-gradient(top, darken(red, 20%), darken(red, 40%))
+	background linear-gradient(to bottom, darken(red, 20%), darken(red, 40%))
+
+	font-size 0.8em
+	color #fff
+	text-align center
+
 
 
 
