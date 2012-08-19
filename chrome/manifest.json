@@ -1,19 +1,25 @@
 {
-  "name": "dabblet",
-  "description": "An interactive CSS playground with extensive GitHub gist-use.",
-  "version": "0.70",
-  "icons": {
-    "16": "app/icons/dabblet-16x16.png",
-    "48": "app/icons/dabblet-48x48.png",
-    "128": "app/icons/dabblet-128x128.png"
-  },
-  "content_scripts": [{
-    "matches": ["https://gist.github.com/*"],
-    "js": ["app/js/github/manipulation.js"]
-  }],
-  "app": {
-    "launch": {
-       "local_path" : "app/main.html"
-    }
-  }
+	"manifest_version": 2,
+	"name": "dabblet",
+	"description": "An interactive CSS playground with extensive GitHub gist-use.",
+	"version": "1.0.0",
+	"icons": {
+		"16": "icons/dabblet-16x16.png",
+		"48": "icons/dabblet-48x48.png",
+		"128": "icons/dabblet-128x128.png"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://gist.github.com/*", "https://github.com/"],
+			"js": ["js/github/manipulation.js"]
+		}
+	],
+
+	"app": {
+		"launch": {
+			 "local_path" : "main.html"
+		}
+	},
+
+	"content_security_policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval'; script-src 'self' https://api.github.com; object-src 'self'"
 }
