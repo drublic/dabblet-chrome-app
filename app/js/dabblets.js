@@ -40,8 +40,9 @@ define(['jquery', 'plugins/text!tmpl/dabblets.html', 'plugins/logan', 'helpers/m
 			});
 
 			// Append all lines to table
-			$('#content').find('tbody').append(output);
-			$('#content').find('table').addClass('fade');
+			$('#content')
+				.find('tbody').append(output)
+				.end().find('table').addClass('fade');
 			$('#loading').fadeOut(function() {
 				$(this).remove();
 				require(['search']);
